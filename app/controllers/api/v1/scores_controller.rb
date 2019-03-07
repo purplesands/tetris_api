@@ -5,6 +5,11 @@ class Api::V1::ScoresController < ApplicationController
     render json: @scores
   end
 
+  def create
+    @score = Score.create(score_params)
+    render json: @score, status: :created
+  end
+
   def update
     @score.update(score_params)
     if @score.save
@@ -17,7 +22,7 @@ class Api::V1::ScoresController < ApplicationController
   private
 
   def score_params
-    paramsrequire(:score).permit(:user, :score)
+    params.require(:score).permit(:user, :score)
   end
 
   def find_score
