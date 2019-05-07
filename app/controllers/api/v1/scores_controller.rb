@@ -10,10 +10,6 @@ class Api::V1::ScoresController < ApplicationController
     render json: @score, status: :created
   end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ebeedc3c5024336c1456d5390d50afefc02686f0
   def update
     @score.update(score_params)
     if @score.save
